@@ -41,7 +41,6 @@ class FreePricingRule extends PricingRule
                     item.finalPrice = 0
                     item.appliedDiscount = @type
                 count = 0 if count == @a
-        true
 
 
 
