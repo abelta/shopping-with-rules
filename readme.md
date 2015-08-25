@@ -13,3 +13,8 @@ Execute
 ------
 
 With Node and Coffeescript installed, run coffee `main.coffee`.
+
+Test
+------
+
+Run all tests with command `jasmine`.
