@@ -17,4 +17,5 @@ With Node and Coffeescript installed, run coffee `main.coffee`.
 Test
 ------
 
-Run all tests with command `jasmine`.
+Install jasmine node with `npm install jasmine-node -g` (must be root user).
+Run all tests with command `jasmine-node --coffee spec`.

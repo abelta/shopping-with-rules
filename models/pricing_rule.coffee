@@ -8,9 +8,9 @@ class PricingRule
 
     constructor: (@type, @itemCode, options={}) ->
         if @type.match /^[0-9]x[0-9]$/
-            return new FreePricingRule type, itemCode, options
+            return new FreePricingRule @type, @itemCode
         else if @type.match /^bulk[0-9]+$/
-            return new BulkPricingRule type, itemCode, options
+            return new BulkPricingRule @type, @itemCode, options
 
     ###
     # Apply discount to a list of items.
@@ -27,7 +27,7 @@ class PricingRule
 ###
 class FreePricingRule extends PricingRule
 
-    constructor: (@type, @itemCode, options={}) ->
+    constructor: (@type, @itemCode) ->
         # In a 2x1 promotion, a is 2 and b is 1.
         @a = Number( @type.split('x')[0] )
         @b = Number( @type.split('x')[1] )
@@ -56,12 +56,12 @@ class BulkPricingRule extends PricingRule
 
     constructor: (@type, @itemCode, options={}) ->
         throw "newPrice is required with bulk type specials." unless options.newPrice
-        @minCuantity = Number( @type.split('bulk')[1] )
+        @minQuantity = Number( @type.split('bulk')[1] )
         @newPrice = options.newPrice
 
     applyDiscount: (items) ->
-        cualifies = (items.filter (item) => item.code == @itemCode).length >= @minCuantity
-        if cualifies
+        qualifies = (items.filter (item) => item.code == @itemCode).length >= @minQuantity
+        if qualifies
             for item in items
                 if item.code == @itemCode and not item.appliedDiscount
                     item.finalPrice = @newPrice
@@ -71,4 +71,5 @@ class BulkPricingRule extends PricingRule
 
 
 
-module.exports = PricingRule
+#module.exports = PricingRule
+module.exports = {PricingRule, FreePricingRule, BulkPricingRule}

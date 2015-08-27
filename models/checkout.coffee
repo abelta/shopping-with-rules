@@ -4,7 +4,7 @@
 ###
 class Checkout
 
-    constructor: (@pricingRules) ->
+    constructor: (@pricingRules=[]) ->
         @items = []
 
     ###
@@ -32,7 +32,7 @@ class Checkout
 
         rule.applyDiscount(@items) for rule in @pricingRules
         result = @items.reduce(sumTotal, 0)
-        console.log "Total: €#{result.toFixed(2)}"
+        console.log "Total: €#{result.toFixed(2)}" if options.withPrint
         result
         
 

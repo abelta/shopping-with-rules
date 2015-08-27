@@ -4,8 +4,8 @@
 
 Checkout = require './models/checkout.coffee'
 Item = require './models/item.coffee'
-PricingRule = require './models/pricing_rule.coffee'
-
+#PricingRule = require './models/pricing_rule.coffee'
+{PricingRule, FreePricingRule, BulkPricingRule} = require './models/pricing_rule.coffee'
 
 voucher = new Item 'VOUCHER', 'Cabify Voucher', 5
 tshirt = new Item 'TSHIRT', 'Cabify T-Shirt', 20
