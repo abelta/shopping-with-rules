@@ -12,7 +12,7 @@ More discount types can be added via inheritance in the future.
 Execute
 ------
 
-With Node and Coffeescript installed, run coffee `main.coffee`.
+With Node and Coffeescript installed, run `coffee main.coffee`.
 
 Test
 ------

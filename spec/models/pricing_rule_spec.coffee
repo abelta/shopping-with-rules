@@ -19,7 +19,7 @@ describe "PricingRule", ->
 
     describe "attributes", ->
 
-        it "should have a type {string} attibute", ->
+        it "should have a type {String} attibute", ->
             expect(typeof @pricingRule.type).toBe('string')
 
         it "should have a itemCode {String} attribute", ->

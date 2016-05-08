@@ -1,14 +1,18 @@
 ###
 # Class for items on sale.
-# param code {String}
-# param name {String}
-# param price {Number}
 ###
 class Item
 
+    ###
+    # Constructor.
+    # code {String}
+    # name {String}
+    # price {Number}
+    ###
     constructor: (@code, @name, @price) ->
         @finalPrice = @price
         @appliedDiscount = null
+
 
 
 
